@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVC.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create") |
+    <a href="/Course/Index" class="btn btn-success">Course Data</a> |
+    <a href="/Students/Index" class="btn btn-success">Student Data</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeptName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeptName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.DeptId }, new { @class = "btn btn-info" })) |
+            @Html.ActionLink("Details", "Details", new { id = item.DeptId }, new { @class = "btn btn-info" })) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DeptId }, new { @class = "btn btn-danger" })) |
+            @Html.ActionLink("AddCourse", "AddCourse", new { id = item.DeptId },new { @class="btn btn-info"}) |
+            @Html.ActionLink("RemoveCourse", "RemoveCourse", new { id = item.DeptId }, new { @class = "btn btn-danger" })
+
+        </td>
+    </tr>
+}
+
+</table>

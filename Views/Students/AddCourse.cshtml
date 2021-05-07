@@ -1,0 +1,41 @@
+﻿@model List<MVC.Models.Course>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCourse</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    @*<h2>Add Course to @ViewBag.std.Name</h2>*@
+    <div class="container text-center">
+        <form method="post">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>New Course</th>
+                        <th>Opertion Course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CrsName</td>
+                            <td>@Html.CheckBox("crs." + item.CrsId.ToString())</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+            <input type="submit" value="new" class="btn btn-success" />
+        </form>
+    </div>
+</body>
+</html>

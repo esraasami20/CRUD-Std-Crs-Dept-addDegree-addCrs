@@ -1,0 +1,40 @@
+﻿@model List<MVC.Models.Department>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddDept</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+        @*<h2>Add Course to @ViewBag.std.Name</h2>*@
+    <div class="container text-center">
+        <form method="post">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>New Dept</th>
+                        <th>Opertion Dept</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DeptName</td>
+                            <td>@Html.CheckBox("depts." + item.DeptId.ToString())</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <input type="submit" value="new" class="btn btn-success" />
+        </form>
+    </div>
+    </body>
+</html>

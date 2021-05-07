@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MVC.Models.Course>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddDegree</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container text-center">
+        <form method="post">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.CrsName)
+                        </td>
+                        <td>
+                            CourseOperation
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CrsName)
+                            </td>
+                            <td>
+                                @Html.TextBox("deg." + item.CrsId.ToString())
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <input type="submit" value="Add" class="btn btn-outline-warning" />
+        </form>
+        <div>
+            @Html.ActionLink("Back", "Index", new { @class = "btn btn-warning" })
+        </div>
+    </div>
+
+    
+</body>
+</html>

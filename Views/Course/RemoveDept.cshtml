@@ -1,0 +1,45 @@
+﻿@model List<MVC.Models.Department>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RemoveDept</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container text-center">
+        <form method="post">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            New Department
+                        </th>
+                        <th>
+                            Department Remove
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DeptName</td>
+                            <td>@Html.CheckBox("depts." + item.DeptId.ToString())</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+            <input type="submit" value="delete" class="btn btn-danger" />
+        </form>
+    </div>
+    
+</body>
+</html>

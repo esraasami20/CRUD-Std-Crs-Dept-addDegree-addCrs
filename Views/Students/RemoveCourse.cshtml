@@ -1,0 +1,44 @@
+﻿@model List<MVC.Models.Course>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RemoveCourse</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container text-center">
+        <form method="post">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            New Course
+                        </th>
+                        <th>
+                            Course Remove
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CrsName</td>
+                            <td>@Html.CheckBox("crs." + item.CrsId.ToString())</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+            <input type="submit" value="delete" class="btn btn-danger" />
+        </form>
+    </div>
+</body>
+</html>
